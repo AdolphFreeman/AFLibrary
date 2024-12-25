@@ -7,7 +7,7 @@ public class AF_StateMachine : MonoBehaviour
 
     private void Update()
     {
-        CurrentState.StateUpdate();
+        CurrentState?.StateUpdate();
     }
 
     public void ChangeState(AF_State state)

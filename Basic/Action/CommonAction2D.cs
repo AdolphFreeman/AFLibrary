@@ -28,9 +28,14 @@ namespace AFLibrary.Action
         public static void MoveWithoutAcceleration(Rigidbody2D rb, bool pressKey, int moveDir, float maxSpeed)
         {
             Vector2 desiredVelocity = new Vector2(moveDir, 0) * Mathf.Max(maxSpeed, 0);
-            
+            Vector2 velocity = rb.velocity;
+
             if (pressKey)
-                rb.velocity = new Vector2(desiredVelocity.x, rb.velocity.y);
+                velocity.x = desiredVelocity.x;
+            else
+                velocity.x = 0;
+
+            rb.velocity = velocity;
         }
 
         public static void Jump(Rigidbody2D rb, float jumpForce)
